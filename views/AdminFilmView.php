@@ -11,11 +11,10 @@ class AdminFilmView
         $this->smarty = new Smarty();
     }
 
-    function adminFilm($genres,$films)
+    function formFilm($genres)
     {
         $this->smarty->assign('genres', $genres);
-        $this->smarty->assign('films', $films);
-        $this->smarty->display('templates/adminFilms.tpl');
+        $this->smarty->display('templates/formFilms.tpl');
     }
 
     function listFilms($films)
@@ -29,6 +28,10 @@ class AdminFilmView
         $this->smarty->assign('movie', $movie);
         $this->smarty->assign('genres', $genres);
         $this->smarty->display('templates/editFormMovie.tpl');
+    }
+
+    function showLocationFilms(){
+        header("Location: ".BASE_URL."showFilms");
     }
 
 }

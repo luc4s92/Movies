@@ -13,9 +13,17 @@ class AdminGenreView
     }
 
 
+    function home(){
+        $this->smarty->display('templates/home.tpl');
+    }
+
+    function formGenre(){
+        $this->smarty->display('templates/formGenre.tpl');
+    }
+
     function adminGenre($genres)
     {
-        //$this->smarty->assign('email', $_SESSION["email"]);
+        
         $seve =false;
         $this->smarty->assign('genres', $genres);
         $this->smarty->assign('seve', $seve);
@@ -31,5 +39,9 @@ class AdminGenreView
     function showGenre($genres){
         $this->smarty->assign('genres',$genres);
         $this->smarty->display('templates/showGenre.tpl');
+    }
+
+    function showLocationGenre(){
+        header("Location: ".BASE_URL."showGenre");
     }
 }

@@ -6,7 +6,7 @@ class AdminFilmModel
 
     function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=filmPirata3;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;dbname=filmPirata;charset=utf8', 'root', '');
     }
 
 

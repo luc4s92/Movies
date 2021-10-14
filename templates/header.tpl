@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <base href="{BASE_URL}" />
     <meta charset="UTF-8">
@@ -9,3 +10,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<header>
+        <nav class="navigation">
+            <ul>
+                <li><a href="home/"  class="link-nav">Home</a></li>
+                <li><a href="showGenre/" class="link-nav">Generos</a></li>
+                <li><a href="showFilms/" class="link-nav">Peliculas</a></li>
+                
+            </ul>
+        </nav>
+</header>
+    

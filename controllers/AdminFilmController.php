@@ -13,11 +13,11 @@ class AdminFilmController
     }
 
 
-    function showAdminFilm()
+    function formFilm()
     {
         $generos = $this->model->getGenre();
-        $films = $this->model->getFilms();
-        $this->view->adminFilm($generos,$films);
+
+        $this->view->formFilm($generos);
     }
 
     function saveFilm()
@@ -28,6 +28,7 @@ class AdminFilmController
         $img = $_POST['img'];
         $id_genre = $_POST['genre'];
         $this->model->addMovie($film, $description, $actors, $img, $id_genre);
+        $this->view->showLocationFilms();
     }
 
 
@@ -37,13 +38,15 @@ class AdminFilmController
         $this->view->listFilms($films);
     }
 
-    function editFormMovie($id){
+    function editFormMovie($id)
+    {
         $movie = $this->model->getMovieByID($id);
         $generos = $this->model->getGenre();
-        $this->view->editMovie($movie,$generos);
+        $this->view->editMovie($movie, $generos);
     }
 
-    function editMovie($id){
+    function editMovie($id)
+    {
         $id_movie = $id;
         $film = $_POST['film'];
         $description = $_POST['description'];
@@ -51,12 +54,14 @@ class AdminFilmController
         $img = $_POST['img'];
         $id_genre = $_POST['genre'];
 
-        
-        $this->model->updateMovie($film,$description,$actors,$img,$id_genre,$id_movie);
+
+        $this->model->updateMovie($film, $description, $actors, $img, $id_genre, $id_movie);
+        $this->view->showLocationFilms();
     }
 
-    function deleteMovie($id){
+    function deleteMovie($id)
+    {
         $this->model->deleteMovieDB($id);
+        $this->view->showLocationFilms();
     }
-
 }

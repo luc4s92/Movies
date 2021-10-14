@@ -1,5 +1,6 @@
-<h3>Admin films</h3>
+{include file="templates/header.tpl" }
 
+<div class="container">
 <form action="saveFilm" method="POST">
     <input placeholder="Nombre de la pelicula" type="text" name="film" id="film" required>
     <input placeholder="Descripcion" type="text" name="description" id="description" required>
@@ -14,7 +15,5 @@
     </select>
     <input type="submit" value="Guardar">
 </form>
+</div>
 
-<a href="showFilms">ver lista peliculas</a> 
-
-<!--{include file="templates/filmsList.tpl" }-->

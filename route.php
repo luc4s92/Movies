@@ -9,7 +9,7 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 } else {
-    $action = 'asdS'; // acción por defecto si no envían
+    $action = 'home'; // acción por defecto si no envían
 }
 
 $params = explode('/', $action);
@@ -20,6 +20,9 @@ $adminFController = new AdminFilmController();
 switch ($params[0]) {
     case 'showGenre':
         $adminGController->showGenre();
+        break;
+    case 'createGenre':
+        $adminGController->newGenre();
         break;
     case 'saveGenre':
         $adminGController->saveGenre();
@@ -36,6 +39,9 @@ switch ($params[0]) {
     case 'deleteGenre':
         $adminGController->deleteGenre($params[1]);
         break;
+    case 'formFilm':
+        $adminFController->formFilm();
+        break;
     case 'saveFilm':
         $adminFController->saveFilm();
         break;
@@ -51,8 +57,8 @@ switch ($params[0]) {
     case 'deleteMovie':
         $adminFController->deleteMovie($params[1]);
         break;
-    case 'asdS':
-        echo ('Esto es la home');
+    case 'home':
+        $adminGController->home();
         break;
 
     default:
