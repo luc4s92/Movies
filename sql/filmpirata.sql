@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2021 a las 17:10:08
+-- Tiempo de generación: 14-10-2021 a las 17:13:11
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -69,6 +69,19 @@ INSERT INTO `movies` (`id_movie`, `film`, `description`, `actors`, `img`, `id_ge
 (7, 'lalalaa', 'adsasdas', 'juan2', 'la imagen2', 4),
 (8, 'asdasd', 'asdasd', 'juan2', 'la imagen', 8);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices para tablas volcadas
 --
@@ -87,6 +100,12 @@ ALTER TABLE `movies`
   ADD KEY `id_genre` (`id_genre`);
 
 --
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -101,6 +120,12 @@ ALTER TABLE `genres`
 --
 ALTER TABLE `movies`
   MODIFY `id_movie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
