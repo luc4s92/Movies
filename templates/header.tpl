@@ -16,6 +16,8 @@
                 <li><a href="home/"  class="link-nav">Home</a></li>
                 <li><a href="showGenre/" class="link-nav">Generos</a></li>
                 <li><a href="showFilms/" class="link-nav">Peliculas</a></li>
+                <li><a href="login/" class="link-nav">LogIn</a></li>
+                <li><a href="logout/" class="link-nav">LogOut</a></li>
                 
             </ul>
         </nav>

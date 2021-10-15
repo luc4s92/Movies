@@ -2,6 +2,7 @@
 
 require_once 'controllers/AdminGenreController.php';
 require_once 'controllers/AdminFilmController.php';
+require_once 'controllers/UserController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -16,6 +17,7 @@ $params = explode('/', $action);
 
 $adminGController = new AdminGenreController();
 $adminFController = new AdminFilmController();
+$userController = new UserController();
 
 switch ($params[0]) {
     case 'showGenre':
@@ -48,6 +50,9 @@ switch ($params[0]) {
     case 'showFilms':
         $adminFController->showFilms();
         break;
+    case 'showFilm':
+        $adminFController->showFilm($params[1]);
+        break;
     case 'editFormMovie':
         $adminFController->editFormMovie($params[1]);
         break;
@@ -59,6 +64,16 @@ switch ($params[0]) {
         break;
     case 'home':
         $adminGController->home();
+        break;
+        
+    case 'login':
+        $userController->login();
+        break;
+    case 'logout':
+        $userController->logout();
+        break;
+    case 'verify':
+        $userController->verifyLogin();
         break;
 
     default:

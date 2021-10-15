@@ -2,14 +2,19 @@
 
 require_once './models/AdminGenreModel.php';
 require_once './views/AdminGenreView.php';
+require_once "./helpers/AuthHelper.php";
 
 class AdminGenreController
 {
+    private $model;
+    private $view;
+    private $authHelper;
 
     function __construct()
     {
         $this->model = new AdminGenreModel();
         $this->view = new AdminGenreView();
+        $this->authHelper = new AuthHelper();
     }
 
 
@@ -20,21 +25,34 @@ class AdminGenreController
 
     function saveGenre()
     {
-        $genre = $_POST['genre'];
-        $this->model->createGenre($genre);
-        $genre = $this->model->getGenre();
-        $this->view->showLocationGenre();
+        $isLogIn = $this->authHelper->checkLogIn();
+        if($isLogIn){
+            $genre = $_POST['genre'];
+            $this->model->createGenre($genre);
+            $genre = $this->model->getGenre();
+            $this->view->showLocationGenre();
+        }else{
+            header("Location: " . BASE_URL . "login");
+        }
+        
+
     }
 
     function showGenre()
     {
+        $isLogIn = $this->authHelper->checkLogIn();
         $genres = $this->model->getGenre();
-        $this->view->adminGenre($genres);
+        $this->view->adminGenre($genres, $isLogIn);
     }
 
     function newGenre()
     {
-        $this->view->formGenre();
+        $isLogIn = $this->authHelper->checkLogIn();
+        if($isLogIn){
+            $this->view->formGenre();
+        }else{
+            header("Location: " . BASE_URL . "login");
+        }
     }
 
     function viewGenre($id)
@@ -46,21 +64,37 @@ class AdminGenreController
 
     function editFormGenre($id)
     {
-        $genre = $this->model->getGenreById($id);
-        $this->view->editG($genre);
+        $isLogIn = $this->authHelper->checkLogIn();
+        if ($isLogIn) {
+            $genre = $this->model->getGenreById($id);
+            $this->view->editG($genre);
+        } else {
+            header("Location: " . BASE_URL . "login");
+        }
     }
 
     function editGenre($id)
     {
+        $isLogIn = $this->authHelper->checkLogIn();
         $id_genre = $id;
-        $nuevoGenre = $_POST['new-genre'];
-        $this->model->updateGenre($id_genre, $nuevoGenre);
-        $this->view->showLocationGenre();
+        if ($isLogIn) {
+            $nuevoGenre = $_POST['new-genre'];
+            $this->model->updateGenre($id_genre, $nuevoGenre);
+            $this->view->showLocationGenre();
+        } else {
+            header("Location: " . BASE_URL . "login");
+        }
     }
 
     function deleteGenre($id)
     {
-        $this->model->deleteGenreDB($id);
-        $this->view->showLocationGenre();
+
+        $isLogIn = $this->authHelper->checkLogIn();
+        if ($isLogIn) {
+            $this->model->deleteGenreDB($id);
+            $this->view->showLocationGenre();
+        } else {
+            header("Location: " . BASE_URL . "login");
+        }
     }
 }

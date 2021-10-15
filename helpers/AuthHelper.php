@@ -14,6 +14,7 @@ class AuthHelper{
         }
         else{
             return false;
+            
         }
     }
 }

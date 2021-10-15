@@ -33,6 +33,11 @@ li {
     font-weight: 600;
 }
 
+.text-desc{
+  color: #ffffff;
+  font-size: 20px;
+}
+
 .container form {
   width: 400px;
   margin-top: 50px;
@@ -72,6 +77,9 @@ li {
   color: #ffffff;
   padding-right: 20px;
 }
+ p{
+  padding-right: 20px;
+}
 
 .genre-list a:hover {
   text-decoration: underline;
@@ -84,8 +92,9 @@ li {
 
 input[type="text"],
 input[type="email"],
+input[type="password"],
 textarea {
-  border: thin solid #dedede;
+  border: thin solid #ffffff;
   border-radius: 0.25rem;
   padding: 0.75rem;
   margin-bottom: 1rem;
@@ -94,7 +103,7 @@ textarea {
   width: 100%;
   font-size: 1rem;
   line-height: 1;
-  background-color: transparent;
+  background-color: #ffffff;
 }
 
 textarea {
@@ -103,15 +112,15 @@ textarea {
 }
 
 button,
-input[type="submit"],
-input[type="reset"] {
-  border: thin solid #444;
+input[type="submit"]
+ {
+  border: thin solid #ffffff;
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
   margin: 0 0.5rem 0 0;
   display: inline-block;
-  background-color: #eee;
-  color: #444;
+  background-color: #ffffff;
+  color: #111111;
   font-weight: bold;
   font-size: 1rem;
   line-height: 1;
@@ -159,7 +168,7 @@ label {
 }
 
 select {
-  border: thin solid #dedede;
+  border: thin solid #ffffff;
   border-radius: 0.25rem;
   padding: 0.5rem;
   margin: 0 0 0.5rem 0;

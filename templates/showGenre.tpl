@@ -4,7 +4,7 @@
     {foreach from=$genres item=$genre}
     <li class="genre-list">
         <div >
-            <a >{$genre->film}</a>
+            <a href="showFilm/{$genre->id_movie}">{$genre->film}</a>
         </div>
     </li>
 {/foreach}

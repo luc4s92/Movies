@@ -17,12 +17,17 @@ class AdminFilmView
         $this->smarty->display('templates/formFilms.tpl');
     }
 
-    function listFilms($films)
+    function listFilms($films,$isLogIn)
     {
         $this->smarty->assign('films', $films);
+        $this->smarty->assign('isLogIn', $isLogIn);
         $this->smarty->display('templates/filmsList.tpl');
     }
 
+    function showMovie($film){
+        $this->smarty->assign('film', $film);
+        $this->smarty->display('templates/movie.tpl');
+    }
 
     function editMovie($movie,$genres){
         $this->smarty->assign('movie', $movie);

@@ -21,12 +21,11 @@ class AdminGenreView
         $this->smarty->display('templates/formGenre.tpl');
     }
 
-    function adminGenre($genres)
+    function adminGenre($genres,$isLogIn)
     {
         
-        $seve =false;
         $this->smarty->assign('genres', $genres);
-        $this->smarty->assign('seve', $seve);
+        $this->smarty->assign('isLogIn', $isLogIn);
         $this->smarty->display('templates/adminGenre.tpl'); //cambiar el tpl
 
     }

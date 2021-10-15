@@ -28,7 +28,7 @@ class AdminGenreModel{
         return $genre;
     }
     function getMoviesByGenre($id){
-        $sentencia = $this->db->prepare("SELECT movies.film,genres.genre FROM movies INNER JOIN genres ON movies.id_genre = genres.id_genre WHERE genres.id_genre=? " );
+        $sentencia = $this->db->prepare("SELECT movies.film,movies.id_movie,genres.genre FROM movies INNER JOIN genres ON movies.id_genre = genres.id_genre WHERE genres.id_genre=? " );
         $sentencia->execute(array($id));
         $genre = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $genre;
@@ -40,7 +40,13 @@ class AdminGenreModel{
     }
 
     function deleteGenreDB($id){
-        $sentencia = $this->db->prepare("DELETE FROM genres where id_genre=?");
-        $sentencia->execute(array($id));
+        try{
+            $sentencia = $this->db->prepare("DELETE FROM genres where id_genre=?");
+            $sentencia->execute(array($id));
+        }
+        catch(PDOException $e){
+            return $e;
+        }
+        
     }
 }
